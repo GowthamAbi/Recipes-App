@@ -53,16 +53,3 @@ exports.deleteRecipe = async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 };
-
-
-// Get all recipes and render the EJS template
-const getAllRecipes = async (req, res) => {
-    try {
-      const recipes = await Recipe.find();
-      res.render("index", { recipes }); // Render EJS view
-    } catch (error) {
-      res.status(500).json({ error: "Server error" });
-    }
-  };
-  
-  module.exports = { getAllRecipes };
